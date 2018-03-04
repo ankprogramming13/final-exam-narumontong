@@ -2,31 +2,60 @@
 #include <fstream>
 #include <string>
 using namespace std;
+
 int main() {
+        /*code*/
         int cmd;
-        ofstream writefile ("std.txt", ofstream::app);
-        ifstream readfile ("std.txt");
         string line;
         string name;
+        ofstream writefile;
+        ifstream readfile;
 
-        cin >> cmd;
+        do{
+            cout<<"MENU"<<endl;
+            cout<<"1.Add student."<<endl;
+            cout<<"2.List student."<<endl;
+            cout<<"3.Search list student."<<endl;
+            cout<<"4.Quit."<<endl;
+            cout<<"Please enter menu:";
+            cin>>cmd;
 
-        if (cmd == 1){
-            cin >> name;
-            if (writefile.is_open()){
-                writefile << name << endl;
-                writefile.close();
+            if(cmd==1){
+            cout<<"Enter Std name : ";
+            cin>>name;
+
+            writefile.open("std.txt",fstream::app);
+            if(writefile.is_open()){
+               writefile<<name<<endl;
             }else{
-                    cout << "Unable to open file";
+
+            cout<<"unable to open file";
             }
-        }else if (cmd == 2){
-            if (readfile.is_open()){
-                    while (getline(readfile,line)){
-                    cout << line << endl;
-                    }
-                    readfile.close();
+
+            }else if(cmd==2){
+            readfile.open("std.txt");
+            if(readfile.is_open()){
+            while(getline(readfile,line)){
+                    cout<<line<<endl;
+                }
+            }else if(cmd==3){
+                cout<<"Enter name :";
+                cin>>name;
+
+                readfile.open("std.txt");
+                if(readfile.is_open()){
+                  (name="&name&",name);
+                  while(getline(readfile,name)){
+                    cout<<name<<endl;
+                  }
+                }
             }
             }else{
-            }
-            return 0;
-}
+                break;}
+
+            }while("myfile.close");
+
+        return 0;
+        }
+
+
